@@ -33,6 +33,14 @@ function reducer(state, action) {
       return { ...state, status: "active" };
     case "errorFound":
       return { ...state, status: "error" };
+    case "nextQuestion":
+      return {
+        ...state,
+        index:
+          state.index < state.questions.length - 1
+            ? state.index++
+            : state.index,
+      };
     default:
       throw new Error("Unknown action");
   }

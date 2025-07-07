@@ -3,9 +3,10 @@ import { QuestionContext } from "../context/QuestionContext";
 import Option from "./option/Option";
 import RightArrow from "../assets/RightArrow";
 import ClockAnimation from "../assets/ClockAnimation";
+import Final from "../assets/Final";
 
 function Question() {
-  const { index, questions } = useContext(QuestionContext);
+  const { index, questions, dispatch } = useContext(QuestionContext);
   const question = questions.at(index);
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: "1.25rem" }}>
@@ -22,12 +23,24 @@ function Question() {
           <ClockAnimation />
           03:40
         </div>
-        <button
-          className="cta-btn"
-          style={{ marginTop: 0, paddingRight: "0.25rem" }}
-        >
-          Next <RightArrow />
-        </button>
+
+        {index < questions.length - 1 ? (
+          <button
+            className="cta-btn"
+            style={{ marginTop: 0, paddingRight: "0.25rem" }}
+            onClick={() => dispatch({ type: "nextQuestion" })}
+          >
+            Next <RightArrow />
+          </button>
+        ) : (
+          <button
+            className="cta-btn"
+            style={{ marginTop: 0, paddingRight: "0.25rem" }}
+            onClick={() => dispatch({ type: "nextQuestion" })}
+          >
+            Finish <Final />
+          </button>
+        )}
       </div>
     </div>
   );
