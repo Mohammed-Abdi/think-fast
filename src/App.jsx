@@ -1,11 +1,14 @@
 import Header from "./layout/Header";
 import Welcome from "./layout/Welcome";
+import Wrapper from "./layout/Wrapper";
 
 function App() {
   return (
     <>
       <Header />
-      <Welcome />
+      <Wrapper>
+        <Welcome />
+      </Wrapper>
     </>
   );
 }
