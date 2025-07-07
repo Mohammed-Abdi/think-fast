@@ -13,12 +13,15 @@ const wrapperStyle = {
 };
 
 function Welcome() {
-  const { numberOfQuestions } = useContext(QuestionContext);
+  const { numberOfQuestions, dispatch } = useContext(QuestionContext);
   return (
     <div style={wrapperStyle}>
       <h1>Welcome to Think Fast Quiz!</h1>
       <p>{numberOfQuestions} questions to test your general knowledge</p>
-      <button className="cta-btn">
+      <button
+        className="cta-btn"
+        onClick={() => dispatch({ type: "isActive" })}
+      >
         <Rocket />
         Start Quiz
       </button>

@@ -10,6 +10,7 @@ import Welcome from "./layout/Welcome";
 import Wrapper from "./layout/Wrapper";
 import Loader from "./components/Loader";
 import Error from "./components/Error";
+import Question from "./components/Question";
 
 // Initial state for the quiz
 const initialState = {
@@ -28,6 +29,8 @@ function reducer(state, action) {
       return { ...state, status: "loading" };
     case "isReady":
       return { ...state, status: "ready" };
+    case "isActive":
+      return { ...state, status: "active" };
     case "errorFound":
       return { ...state, status: "error" };
     default:
@@ -66,6 +69,7 @@ function App() {
             {status === "loading" && <Loader />}
             {status === "ready" && <Welcome />}
             {status === "error" && <Error />}
+            {status === "active" && <Question />}
           </Wrapper>
         </QuestionContext.Provider>
       </Main>
