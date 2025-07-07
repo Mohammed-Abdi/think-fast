@@ -13,7 +13,7 @@ function Question() {
     <div style={{ display: "flex", flexDirection: "column", gap: "1.25rem" }}>
       <ProgressBar />
       <h3 style={{ paddingLeft: "1rem" }}>{question.question}</h3>
-      <Option question={question} />
+      <Option />
       <div
         style={{
           display: "flex",
