@@ -39,7 +39,7 @@ function App() {
     initialState
   );
   const numberOfQuestions = questions?.length;
-  const { data } = useFetch("/data/questions.json", dispatch);
+  const { data, errorMessage } = useFetch("/data/questions.json", dispatch);
 
   useEffect(() => {
     if (data?.questions?.length)
@@ -63,7 +63,7 @@ function App() {
           <Wrapper>
             {status === "loading" && <Loader />}
             {status === "ready" && <Welcome />}
-            {status === "error" && <Error />}
+            {status === "error" && <Error message={errorMessage} />}
           </Wrapper>
         </QuestionContext.Provider>
       </Main>
