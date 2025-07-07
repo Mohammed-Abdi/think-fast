@@ -11,8 +11,8 @@ export function useFetch(url, dispatch) {
         dispatch({ type: "isLoading" });
         const res = await fetch(url);
         if (!res.ok) throw new Error("couldn't fetch question");
-        dispatch({ type: "isReady" });
         const data = await res.json();
+        dispatch({ type: "isReady" });
         setData(data);
       } catch (error) {
         setErrorMessage(error.message);
