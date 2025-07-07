@@ -6,6 +6,7 @@ import Header from "./layout/Header";
 import Main from "./layout/Main";
 import Welcome from "./layout/Welcome";
 import Wrapper from "./layout/Wrapper";
+import Loader from "./components/Loader";
 
 const initialState = {
   questions: [],
@@ -44,7 +45,7 @@ function App() {
       <Header />
       <Main>
         <Wrapper>
-          {status === "loading" && <Welcome />}
+          {status === "loading" && <Loader />}
           {status === "ready" && <Welcome />}
         </Wrapper>
       </Main>
