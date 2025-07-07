@@ -1,3 +1,5 @@
+import LoaderAnimation from "../assets/LoaderAnimation";
+
 const loaderStyle = {
   display: "flex",
   alignItems: "center",
@@ -7,7 +9,11 @@ const loaderStyle = {
 };
 
 function Loader() {
-  return <div style={loaderStyle}>Loading...</div>;
+  return (
+    <div style={loaderStyle}>
+      <LoaderAnimation />
+    </div>
+  );
 }
 
 export default Loader;
