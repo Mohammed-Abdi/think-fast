@@ -1,5 +1,4 @@
 const headerStyle = {
-  fontSize: "3rem",
   fontWeight: 600,
   textAlign: "center",
   padding: "1.25rem",
@@ -8,7 +7,11 @@ const headerStyle = {
 };
 
 function Header() {
-  return <header style={headerStyle}>Think Fast</header>;
+  return (
+    <header style={headerStyle}>
+      <h1>Think Fast</h1>
+    </header>
+  );
 }
 
 export default Header;
