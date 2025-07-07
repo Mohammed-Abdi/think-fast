@@ -9,6 +9,7 @@ import Main from "./layout/Main";
 import Welcome from "./layout/Welcome";
 import Wrapper from "./layout/Wrapper";
 import Loader from "./components/Loader";
+import Error from "./components/Error";
 
 // Initial state for the quiz
 const initialState = {
@@ -62,6 +63,7 @@ function App() {
           <Wrapper>
             {status === "loading" && <Loader />}
             {status === "ready" && <Welcome />}
+            {status === "error" && <Error />}
           </Wrapper>
         </QuestionContext.Provider>
       </Main>
