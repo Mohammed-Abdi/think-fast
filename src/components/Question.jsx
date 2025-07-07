@@ -24,7 +24,7 @@ function Question() {
         </div>
         <button
           className="cta-btn"
-          style={{ fontSize: "1rem", marginTop: 0, paddingRight: "0.25rem" }}
+          style={{ marginTop: 0, paddingRight: "0.25rem" }}
         >
           Next <RightArrow />
         </button>
