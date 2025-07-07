@@ -4,12 +4,14 @@ import Option from "./option/Option";
 import RightArrow from "../assets/RightArrow";
 import ClockAnimation from "../assets/ClockAnimation";
 import Final from "../assets/Final";
+import ProgressBar from "./progress-bar/ProgressBar";
 
 function Question() {
   const { index, questions, dispatch } = useContext(QuestionContext);
   const question = questions.at(index);
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: "1.25rem" }}>
+      <ProgressBar />
       <h3 style={{ paddingLeft: "1rem" }}>{question.question}</h3>
       <Option question={question} />
       <div
