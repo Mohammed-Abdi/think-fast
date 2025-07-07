@@ -1,33 +1,38 @@
 {
   "questions": [
     {
-      "question": "What color is the sky on a clear day?",
-      "options": ["Green", "Blue", "Red", "Yellow"],
+      "question": "You see a glass filled halfway. What is it?",
+      "options": ["Half-empty", "Half-full", "Totally full", "Just a glass"],
       "correctAnswerIndex": 1,
       "points": 10
     },
     {
-      "question": "How many legs does a dog have?",
-      "options": ["2", "4", "6", "8"],
+      "question": "If you’re in a race and pass the person in second place, what place are you in?",
+      "options": ["First place", "Second place", "Third place", "Last place"],
       "correctAnswerIndex": 1,
       "points": 10
     },
     {
-      "question": "What do you use to write on paper?",
-      "options": ["Spoon", "Pencil", "Brush", "Fork"],
-      "correctAnswerIndex": 1,
-      "points": 10
-    },
-    {
-      "question": "Which shape has four equal sides?",
-      "options": ["Triangle", "Circle", "Square", "Rectangle"],
+      "question": "Which of these is most important to success?",
+      "options": ["Talent", "Luck", "Hard work", "Connections"],
       "correctAnswerIndex": 2,
       "points": 10
     },
     {
-      "question": "What is 2 + 2?",
-      "options": ["3", "4", "5", "6"],
-      "correctAnswerIndex": 1,
+      "question": "You enter a dark room with only one match. What do you light first?",
+      "options": ["Candle", "Lantern", "Match", "Stove"],
+      "correctAnswerIndex": 2,
+      "points": 10
+    },
+    {
+      "question": "If a plane crashes on the border of two countries, where do they bury the survivors?",
+      "options": [
+        "Country A",
+        "Country B",
+        "Between borders",
+        "Nowhere – they survived"
+      ],
+      "correctAnswerIndex": 3,
       "points": 10
     }
   ]
