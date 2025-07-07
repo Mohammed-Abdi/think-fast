@@ -35,10 +35,11 @@ function Question() {
         ) : (
           <button
             className="cta-btn"
-            style={{ marginTop: 0, paddingRight: "0.25rem" }}
+            style={{ marginTop: 0, paddingLeft: "0.25rem" }}
             onClick={() => dispatch({ type: "finalize" })}
           >
-            Finish <Final />
+            <Final />
+            Finish
           </button>
         )}
       </div>
