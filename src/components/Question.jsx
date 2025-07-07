@@ -7,7 +7,7 @@ import Final from "../assets/Final";
 import ProgressBar from "./progress-bar/ProgressBar";
 
 function Question() {
-  const { index, questions, dispatch } = useContext(QuestionContext);
+  const { index, questions, answer, dispatch } = useContext(QuestionContext);
   const question = questions.at(index);
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: "1.25rem" }}>
@@ -21,28 +21,39 @@ function Question() {
           paddingInline: "0.25rem",
         }}
       >
-        <div style={{ display: "flex", alignItems: "center", gap: "0.625rem" }}>
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            gap: "0.625rem",
+            minHeight: "2.5rem",
+          }}
+        >
           <ClockAnimation />
           03:40
         </div>
 
-        {index < questions.length - 1 ? (
-          <button
-            className="cta-btn"
-            style={{ marginTop: 0, paddingRight: "0.25rem" }}
-            onClick={() => dispatch({ type: "nextQuestion" })}
-          >
-            Next <RightArrow />
-          </button>
+        {answer !== null ? (
+          index < questions.length - 1 ? (
+            <button
+              className="cta-btn"
+              style={{ marginTop: 0, paddingRight: "0.25rem" }}
+              onClick={() => dispatch({ type: "nextQuestion" })}
+            >
+              Next <RightArrow />
+            </button>
+          ) : (
+            <button
+              className="cta-btn"
+              style={{ marginTop: 0, paddingLeft: "0.25rem" }}
+              onClick={() => dispatch({ type: "finalize" })}
+            >
+              <Final />
+              Finish
+            </button>
+          )
         ) : (
-          <button
-            className="cta-btn"
-            style={{ marginTop: 0, paddingLeft: "0.25rem" }}
-            onClick={() => dispatch({ type: "finalize" })}
-          >
-            <Final />
-            Finish
-          </button>
+          ""
         )}
       </div>
     </div>

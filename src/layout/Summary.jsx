@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { QuestionContext } from "../context/QuestionContext";
 import Restart from "../assets/Restart";
+import Score from "../components/score/Score";
 
 const wrapperStyle = {
   display: "flex",
@@ -15,7 +16,7 @@ function Summary() {
   const { dispatch } = useContext(QuestionContext);
   return (
     <div style={wrapperStyle}>
-      <p>This is the Summary you got X/X</p>
+      <Score />
       <button className="cta-btn" onClick={() => dispatch({ type: "isReady" })}>
         <Restart />
         Restart Quiz
