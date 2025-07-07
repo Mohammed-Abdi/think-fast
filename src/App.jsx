@@ -18,6 +18,7 @@ const initialState = {
   questions: [],
   status: "loading",
   index: 0,
+  points: 0,
   answer: null,
 };
 
@@ -34,6 +35,16 @@ function reducer(state, action) {
       return { ...state, status: "active" };
     case "errorFound":
       return { ...state, status: "error" };
+    case "answerIt":
+      return { ...state, answer: action.payload };
+    case "increasePoints":
+      return {
+        ...state,
+        points:
+          state.answer === state.questions.at(state.index).correctAnswerIndex
+            ? state.points + state.questions.at(state.index).points
+            : state.points,
+      };
     case "nextQuestion":
       return {
         ...state,
@@ -51,7 +62,7 @@ function reducer(state, action) {
 }
 
 function App() {
-  const [{ questions, status, index, answer }, dispatch] = useReducer(
+  const [{ questions, points, status, index, answer }, dispatch] = useReducer(
     reducer,
     initialState
   );
@@ -63,6 +74,10 @@ function App() {
       dispatch({ type: "getData", payload: data.questions });
   }, [data]);
 
+  useEffect(() => {
+    if (answer !== null) dispatch({ type: "increasePoints" });
+  }, [answer]);
+
   return (
     <>
       <Header />
@@ -70,6 +85,7 @@ function App() {
         <QuestionContext.Provider
           value={{
             questions,
+            points,
             numberOfQuestions,
             status,
             index,
