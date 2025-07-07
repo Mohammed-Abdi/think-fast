@@ -29,7 +29,7 @@ function Score() {
     if (points === 0) return "😵‍💫";
     if (scorePercentage > 0 && scorePercentage < 40) return "😤";
     if (scorePercentage >= 40 && scorePercentage < 70) return "🤔";
-    if (scorePercentage >= 70 && scorePercentage < 100) return "😉";
+    if (scorePercentage >= 70 && scorePercentage < 100) return "😃";
     if (scorePercentage === 100) return "🎉";
   }
 
