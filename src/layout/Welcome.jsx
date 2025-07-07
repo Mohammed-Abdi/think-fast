@@ -15,10 +15,13 @@ const buttonStyle = {
   alignItems: "center",
   gap: "var(--padding-sm)",
   padding: "0.5rem 1rem",
+  fontWeight: 500,
   width: "fit-content",
   backgroundColor: "var(--light-clr)",
   color: "var(--dark-clr)",
   border: "none",
+  borderRadius: "0.5rem",
+  marginTop: "2rem",
   cursor: "pointer",
 };
 
