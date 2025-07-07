@@ -7,7 +7,7 @@ function ProgressBar() {
     useContext(QuestionContext);
   const totalPoint = questions.reduce((acc, cur) => acc + cur.points, 0);
   const currentQuestion = index + 1;
-  const progress = (currentQuestion / numberOfQuestions) * 100;
+  const progress = (index / numberOfQuestions) * 100;
 
   return (
     <div className="progress-wrapper">
