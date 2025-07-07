@@ -1,4 +1,6 @@
-import { useReducer } from "react";
+import { useEffect, useReducer } from "react";
+import { useFetch } from "./hooks/useFetch";
+
 import Footer from "./layout/Footer";
 import Header from "./layout/Header";
 import Main from "./layout/Main";
@@ -12,8 +14,17 @@ const initialState = {
   answer: null,
 };
 
-function reducer() {
-  return;
+function reducer(state, action) {
+  switch (action.type) {
+    case "getData":
+      return { ...state, questions: action.payload };
+    case "isLoading":
+      return { ...state, status: "loading" };
+    case "isReady":
+      return { ...state, status: "ready" };
+    default:
+      throw new Error("Unknown action");
+  }
 }
 
 function App() {
@@ -21,12 +32,20 @@ function App() {
     reducer,
     initialState
   );
+
+  const { data } = useFetch("/data/questions.json", dispatch);
+
+  useEffect(() => {
+    dispatch({ type: "getData", payload: data });
+  }, [data]);
+
   return (
     <>
       <Header />
       <Main>
         <Wrapper>
-          <Welcome />
+          {status === "loading" && <Welcome />}
+          {status === "ready" && <Welcome />}
         </Wrapper>
       </Main>
       <Footer>
