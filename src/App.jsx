@@ -48,7 +48,7 @@ function reducer(state, action) {
     case "tick":
       return {
         ...state,
-        timeGiven: state.timeGiven--,
+        timeGiven: state.timeGiven - 1,
         status: state.timeGiven === 0 ? "finish" : state.status,
       };
     case "increasePoints":
@@ -65,7 +65,7 @@ function reducer(state, action) {
         answer: null,
         index:
           state.index < state.questions.length - 1
-            ? state.index++
+            ? state.index + 1
             : state.index,
       };
     case "finalize":
