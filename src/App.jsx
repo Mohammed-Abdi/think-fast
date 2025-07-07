@@ -11,6 +11,7 @@ import Wrapper from "./layout/Wrapper";
 import Loader from "./components/Loader";
 import Error from "./components/Error";
 import Question from "./components/Question";
+import Summary from "./layout/Summary";
 
 // Initial state for the quiz
 const initialState = {
@@ -36,11 +37,14 @@ function reducer(state, action) {
     case "nextQuestion":
       return {
         ...state,
+        answer: null,
         index:
           state.index < state.questions.length - 1
             ? state.index++
             : state.index,
       };
+    case "finalize":
+      return { ...state, answer: null, status: "finish" };
     default:
       throw new Error("Unknown action");
   }
@@ -78,6 +82,7 @@ function App() {
             {status === "ready" && <Welcome />}
             {status === "error" && <Error />}
             {status === "active" && <Question />}
+            {status === "finish" && <Summary />}
           </Wrapper>
         </QuestionContext.Provider>
       </Main>

@@ -36,7 +36,7 @@ function Question() {
           <button
             className="cta-btn"
             style={{ marginTop: 0, paddingRight: "0.25rem" }}
-            onClick={() => dispatch({ type: "nextQuestion" })}
+            onClick={() => dispatch({ type: "finalize" })}
           >
             Finish <Final />
           </button>
