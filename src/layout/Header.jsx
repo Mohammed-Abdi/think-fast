@@ -1,5 +1,6 @@
 const headerStyle = {
   fontSize: "2.5rem",
+  minHeight: "15vh",
   fontWeight: 600,
   textAlign: "center",
   padding: "1.25rem",
