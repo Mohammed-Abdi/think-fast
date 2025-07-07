@@ -1,3 +1,4 @@
+import Footer from "./layout/Footer";
 import Header from "./layout/Header";
 import Main from "./layout/Main";
 import Welcome from "./layout/Welcome";
@@ -12,6 +13,9 @@ function App() {
           <Welcome />
         </Wrapper>
       </Main>
+      <Footer>
+        <p>&copy; 2025. All rights reserved.</p>
+      </Footer>
     </>
   );
 }
