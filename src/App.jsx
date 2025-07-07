@@ -1,5 +1,6 @@
 import { useEffect, useReducer } from "react";
 import { useFetch } from "./hooks/useFetch";
+import { QuestionContext } from "./context/QuestionContext";
 
 import Footer from "./layout/Footer";
 import Header from "./layout/Header";
@@ -34,6 +35,8 @@ function App() {
     initialState
   );
 
+  const numberOfQuestions = questions.length;
+
   const { data } = useFetch("/data/questions.json", dispatch);
 
   useEffect(() => {
@@ -44,10 +47,21 @@ function App() {
     <>
       <Header />
       <Main>
-        <Wrapper>
-          {status === "loading" && <Loader />}
-          {status === "ready" && <Welcome />}
-        </Wrapper>
+        <QuestionContext.Provider
+          value={{
+            questions,
+            numberOfQuestions,
+            status,
+            index,
+            answer,
+            dispatch,
+          }}
+        >
+          <Wrapper>
+            {status === "loading" && <Loader />}
+            {status === "ready" && <Welcome />}
+          </Wrapper>
+        </QuestionContext.Provider>
       </Main>
       <Footer>
         <p>&copy; 2025 Think Fast. All rights reserved.</p>
