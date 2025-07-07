@@ -7,6 +7,7 @@ export function useFetch(url, dispatch) {
   useEffect(() => {
     async function getData() {
       try {
+        setErrorMessage("");
         dispatch({ type: "isLoading" });
         const res = await fetch(url);
         if (!res.ok) throw new Error("couldn't fetch question");
