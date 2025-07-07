@@ -15,12 +15,15 @@ const wrapperStyle = {
   alignItems: "center",
 };
 
-function Error({ message }) {
+function Error() {
   return (
     <div style={ErrorStyle}>
       <div style={wrapperStyle}>
         <NoConnection />
-        <p>{message}</p>
+        <p style={{ textAlign: "center" }}>
+          Oops! Unable to load data <br />
+          Please check your internet connection and try again
+        </p>
       </div>
     </div>
   );
