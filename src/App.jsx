@@ -2,6 +2,7 @@ import { useEffect, useReducer } from "react";
 import { useFetch } from "./hooks/useFetch";
 import { QuestionContext } from "./context/QuestionContext";
 
+// Layout and UI components
 import Footer from "./layout/Footer";
 import Header from "./layout/Header";
 import Main from "./layout/Main";
@@ -9,6 +10,7 @@ import Welcome from "./layout/Welcome";
 import Wrapper from "./layout/Wrapper";
 import Loader from "./components/Loader";
 
+// Initial state for the quiz
 const initialState = {
   questions: [],
   status: "loading",
@@ -16,6 +18,7 @@ const initialState = {
   answer: null,
 };
 
+// Reducer function to manage quiz state transitions
 function reducer(state, action) {
   switch (action.type) {
     case "getData":
@@ -34,13 +37,12 @@ function App() {
     reducer,
     initialState
   );
-
-  const numberOfQuestions = questions.length;
-
+  const numberOfQuestions = questions?.length;
   const { data } = useFetch("/data/questions.json", dispatch);
 
   useEffect(() => {
-    dispatch({ type: "getData", payload: data });
+    if (data?.questions?.length)
+      dispatch({ type: "getData", payload: data.questions });
   }, [data]);
 
   return (

@@ -1,3 +1,5 @@
+import { useContext } from "react";
+import { QuestionContext } from "../context/QuestionContext";
 import Rocket from "../assets/Rocket";
 
 const wrapperStyle = {
@@ -11,10 +13,11 @@ const wrapperStyle = {
 };
 
 function Welcome() {
+  const { numberOfQuestions } = useContext(QuestionContext);
   return (
     <div style={wrapperStyle}>
       <h1>Welcome to Think Fast Quiz!</h1>
-      <p>5 questions to test your general knowledge</p>
+      <p>{numberOfQuestions} questions to test your general knowledge</p>
       <button className="cta-btn">
         <Rocket />
         Start Quiz

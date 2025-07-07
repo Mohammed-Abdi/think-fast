@@ -13,7 +13,7 @@ export function useFetch(url, dispatch) {
       setData(data);
     }
     getData();
-  }, [url]);
+  }, [url, dispatch]);
 
   return { data };
 }
