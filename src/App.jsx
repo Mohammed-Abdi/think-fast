@@ -29,7 +29,7 @@ function reducer(state, action) {
     case "isLoading":
       return { ...state, status: "loading" };
     case "isReady":
-      return { ...state, status: "ready" };
+      return { ...state, status: "ready", index: 0 };
     case "isActive":
       return { ...state, status: "active" };
     case "errorFound":
