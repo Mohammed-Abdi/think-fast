@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { QuestionContext } from "../context/QuestionContext";
 import Option from "./option/Option";
 import RightArrow from "../assets/RightArrow";
@@ -7,8 +7,16 @@ import Final from "../assets/Final";
 import ProgressBar from "./progress-bar/ProgressBar";
 
 function Question() {
-  const { index, questions, answer, dispatch } = useContext(QuestionContext);
+  const { index, questions, answer, timeGiven, dispatch } =
+    useContext(QuestionContext);
   const question = questions.at(index);
+  const min = Math.floor(timeGiven / 60);
+  const sec = Math.floor(timeGiven % 60);
+
+  useEffect(() => {
+    const tick = setInterval(() => dispatch({ type: "tick" }), 1000);
+    return () => clearInterval(tick);
+  });
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: "1.25rem" }}>
       <ProgressBar />
@@ -27,10 +35,15 @@ function Question() {
             alignItems: "center",
             gap: "0.625rem",
             minHeight: "2.5rem",
+            color: timeGiven <= 50 ? "red" : "",
           }}
         >
           <ClockAnimation />
-          03:40
+          <span>
+            {min < 10 && 0}
+            {min}:{sec < 10 && 0}
+            {sec}
+          </span>
         </div>
 
         {answer !== null ? (

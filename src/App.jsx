@@ -19,6 +19,7 @@ const initialState = {
   status: "loading",
   index: 0,
   points: 0,
+  timeGiven: 150,
   answer: null,
 };
 
@@ -30,13 +31,26 @@ function reducer(state, action) {
     case "isLoading":
       return { ...state, status: "loading" };
     case "isReady":
-      return { ...state, status: "ready", index: 0, points: 0 };
+      console.log(action.payload);
+      return {
+        ...state,
+        status: "ready",
+        index: 0,
+        points: 0,
+        timeGiven: 150,
+      };
     case "isActive":
       return { ...state, status: "active" };
     case "errorFound":
       return { ...state, status: "error" };
     case "answerIt":
       return { ...state, answer: action.payload };
+    case "tick":
+      return {
+        ...state,
+        timeGiven: state.timeGiven--,
+        status: state.timeGiven === 0 ? "finish" : state.status,
+      };
     case "increasePoints":
       return {
         ...state,
@@ -62,10 +76,8 @@ function reducer(state, action) {
 }
 
 function App() {
-  const [{ questions, points, status, index, answer }, dispatch] = useReducer(
-    reducer,
-    initialState
-  );
+  const [{ questions, points, status, index, answer, timeGiven }, dispatch] =
+    useReducer(reducer, initialState);
   const numberOfQuestions = questions?.length;
   const { data } = useFetch("/data/questions.json", dispatch);
 
@@ -90,6 +102,7 @@ function App() {
             status,
             index,
             answer,
+            timeGiven,
             dispatch,
           }}
         >
