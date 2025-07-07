@@ -16,6 +16,7 @@ export function useFetch(url, dispatch) {
         setData(data);
       } catch (error) {
         setErrorMessage(error.message);
+        dispatch({ type: "errorFound" });
       }
     }
     getData();
