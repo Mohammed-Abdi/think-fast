@@ -28,6 +28,8 @@ function reducer(state, action) {
       return { ...state, status: "loading" };
     case "isReady":
       return { ...state, status: "ready" };
+    case "errorFound":
+      return { ...state, status: "error" };
     default:
       throw new Error("Unknown action");
   }
