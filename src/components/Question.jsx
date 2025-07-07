@@ -12,7 +12,7 @@ function Question() {
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: "1.25rem" }}>
       <ProgressBar />
-      <h3 style={{ paddingLeft: "1rem" }}>{question.question}</h3>
+      <h3 style={{ paddingLeft: "0.5rem" }}>{question.question}</h3>
       <Option />
       <div
         style={{
