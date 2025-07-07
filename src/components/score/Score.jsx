@@ -10,7 +10,7 @@ function Score() {
   const scorePercentage = (points / totalPoints) * 100;
 
   useEffect(() => {
-    const timeOut = setTimeout(setProgressAnimation(scorePercentage), 100);
+    const timeOut = setTimeout(setProgressAnimation(scorePercentage), 1000);
     return () => clearTimeout(timeOut);
   }, [scorePercentage]);
 
