@@ -14,7 +14,7 @@ function App() {
         </Wrapper>
       </Main>
       <Footer>
-        <p>&copy; 2025. All rights reserved.</p>
+        <p>&copy; 2025 Think Fast. All rights reserved.</p>
       </Footer>
     </>
   );
