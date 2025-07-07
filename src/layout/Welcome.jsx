@@ -10,27 +10,12 @@ const wrapperStyle = {
   margin: "auto",
 };
 
-const buttonStyle = {
-  display: "flex",
-  alignItems: "center",
-  gap: "var(--padding-sm)",
-  padding: "0.5rem 1rem",
-  fontWeight: 500,
-  width: "fit-content",
-  backgroundColor: "var(--light-clr)",
-  color: "var(--dark-clr)",
-  border: "none",
-  borderRadius: "0.5rem",
-  marginTop: "2rem",
-  cursor: "pointer",
-};
-
 function Welcome() {
   return (
     <div style={wrapperStyle}>
       <h1>Welcome to Think Fast Quiz!</h1>
       <p>5 questions to test your general knowledge</p>
-      <button style={buttonStyle}>
+      <button className="cta-btn">
         <Rocket />
         Start Quiz
       </button>

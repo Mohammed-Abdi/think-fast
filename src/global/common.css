@@ -1,0 +1,21 @@
+.cta-btn {
+  display: flex;
+  align-items: center;
+  gap: var(--padding-sm);
+  padding: 0.5rem 1rem;
+  font-weight: 500;
+  width: fit-content;
+  background-color: var(--light-clr);
+  color: var(--dark-clr);
+  border: 1px solid var(--border-light);
+  border-radius: 0.5rem;
+  margin-top: 2rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+@media (min-width: 48rem) {
+  .cta-btn:hover {
+    background-color: var(--border-light);
+  }
+}
